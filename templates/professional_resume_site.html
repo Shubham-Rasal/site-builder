@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shubham Rasal | Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        :root {
+            --bg: #ffffff;
+            --text-main: #111827;
+            --text-muted: #6b7280;
+            --accent: #4f46e5; /* Indigo 600 */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfcfd;
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .mono { font-family: 'JetBrains+Mono', monospace; }
+
+        .container-minimal {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            background: white;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-label::after {
+            content: "";
+            height: 1px;
+            flex-grow: 1;
+            background: #f1f5f9;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .date-col {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            padding-top: 0.25rem;
+        }
+
+        .content-col h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .content-col .org {
+            font-size: 0.95rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .description {
+            font-size: 0.95rem;
+            color: #374151;
+        }
+
+        .description ul {
+            list-style: none;
+        }
+
+        .description li {
+            margin-bottom: 0.6rem;
+            position: relative;
+            padding-left: 1.25rem;
+        }
+
+        .description li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        .skill-tag {
+            font-size: 0.8rem;
+            padding: 0.25rem 0.75rem;
+            background: #f8fafc;
+            border: 1px solid #f1f5f9;
+            border-radius: 4px;
+            color: #475569;
+            display: inline-block;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        @media (max-width: 640px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            .container-minimal {
+                padding: 2rem 1.5rem;
+            }
+            .date-col {
+                margin-bottom: 0.25rem;
+            }
+        }
+
+        @media print {
+            body { background: white; }
+            .container-minimal { padding: 0.5in; max-width: 100%; margin: 0; }
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="no-print fixed bottom-8 right-8">
+        <button onclick="window.print()" class="bg-black text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:scale-105 transition shadow-2xl">
+            Save as PDF
+        </button>
+    </div>
+
+    <div class="container-minimal">
+        <!-- Header -->
+        <header class="mb-20">
+            <h1>Shubham Rasal</h1>
+            <p class="text-lg text-gray-500 mb-6 font-medium">Full Stack & Web3 Engineer</p>
+            <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-gray-400">
+                <a href="mailto:bluequbits@gmail.com">bluequbits@gmail.com</a>
+                <span>LinkedIn</span>
+                <span>GitHub</span>
+                <span>LeetCode</span>
+            </div>
+        </header>
+
+        <!-- Education -->
+        <section class="mb-16">
+            <div class="section-label">Education</div>
+            <div class="grid-layout">
+                <div class="date-col">2021 — 2025</div>
+                <div class="content-col">
+                    <h3>B.Tech in Information Technology</h3>
+                    <div class="org">National Institute of Technology, Karnataka</div>
+                    <p class="description">Focused on distributed systems and software architecture. <span class="text-gray-400">CGPA: 8.54/10.0</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section class="mb-16">
+            <div class="section-label">Experience</div>
+            
+            <div class="grid-layout">
+                <div class="date-col">Summer 2024</div>
+                <div class="content-col">
+                    <h3>Server Tech Intern</h3>
+                    <div class="org">Oracle, Database Cloud Services</div>
+                    <div class="description">
+                        <ul>
+                            <li>Built <strong>FlowGenie</strong>, a JSON-to-State machine visualization engine used by SRE teams for cloud workflow auditing.</li>
+                            <li>Lead the UI migration of legacy visualization modules to <strong>React</strong>, improving interaction latency.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-layout">
+                <div class="date-col">Late 2022</div>
+                <div class="content-col">
+                    <h3>Backend Intern</h3>
+                    <div class="org">Easycompany (Remote)</div>
+                    <div class="description">
+                        <ul>
+                            <li>Implemented Goroutine-based auth flows in <strong>Go</strong>, resulting in a 30% reduction in login overhead.</li>
+                            <li>Architected a multi-threaded parser for enterprise document formats.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="mb-16">
+            <div class="section-label">Selected Projects</div>
+
+            <div class="grid-layout">
+                <div class="date-col">Web3 / ML</div>
+                <div class="content-col">
+                    <h3>Cipher Craft</h3>
+                    <div class="description mb-4">
+                        A decentralized hub for model training. Uses <strong>zkML</strong> to verify model inference on private datasets without exposing weights.
+                    </div>
+                    <div class="flex flex-wrap">
+                        <span class="skill-tag">Next.js</span>
+                        <span class="skill-tag">Solidity</span>
+                        <span class="skill-tag">Docker</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-layout">
+                <div class="date-col">IoT / Web3</div>
+                <div class="content-col">
+                    <h3>Harveeco</h3>
+                    <div class="description mb-4">
+                        Agricultural analytics platform using NodeMCU sensors. Stores immutable records on the <strong>Lighthouse</strong> network.
+                    </div>
+                    <div class="flex flex-wrap">
+                        <span class="skill-tag">IoT</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">PyTorch</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="mb-16">
+            <div class="section-label">Skills</div>
+            <div class="grid-layout">
+                <div class="date-col">Stack</div>
+                <div class="content-col">
+                    <div class="mb-4">
+                        <span class="text-xs font-bold uppercase text-gray-400 block mb-2">Languages</span>
+                        <p class="text-sm">C++, Go, JavaScript, SQL, Solidity</p>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold uppercase text-gray-400 block mb-2">Technologies</span>
+                        <p class="text-sm">React, Next.js, Docker, Node.js, Git, IPFS</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hackathons -->
+        <section>
+            <div class="section-label">Achievements</div>
+            <div class="grid-layout">
+                <div class="date-col">Hackathons</div>
+                <div class="content-col">
+                    <div class="description">
+                        <ul>
+                            <li><strong>HackFS</strong> — Track Winner, Decentralized Tooling</li>
+                            <li><strong>ETH India</strong> — Multiple Bounties, IoT Innovation</li>
+                            <li><strong>HackBangalore</strong> — 2nd Place, Fintech Track</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>

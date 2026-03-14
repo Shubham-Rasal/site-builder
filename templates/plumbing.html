@@ -1,0 +1,420 @@
+<html lang="en" vid="0"><head vid="1">
+    <meta charset="UTF-8" vid="2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" vid="3">
+    <title vid="4">Onyx Plumbing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" vid="5">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" vid="6">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wdth,wght@6..96,62.5,400..900&amp;family=Inter:wght@400;500;600&amp;family=Parisienne&amp;display=swap" rel="stylesheet" vid="7">
+    <style vid="8">
+        :root {
+            --color-bg: #E6332A; 
+            --color-ink: #080808; 
+            --font-script: 'Parisienne', cursive;
+            --font-display: 'Bodoni Moda', serif;
+            --font-sans: 'Inter', sans-serif;
+            
+            --spacing-unit: 8px;
+            --container-width: 1200px;
+            --border-width: 2px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-ink);
+            font-family: var(--font-sans);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.15;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        
+        .nav-link, .label-underlined {
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            color: var(--color-ink);
+            border-bottom: var(--border-width) solid var(--color-ink);
+            padding-bottom: 2px;
+            line-height: 1.2;
+            display: inline-block;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        
+        header {
+            padding: 40px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 80px;
+        }
+
+        .logo {
+            font-family: var(--font-script);
+            font-size: 3.5rem;
+            line-height: 1;
+            
+            transform: rotate(-2deg); 
+            transform-origin: left bottom;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        
+        .hero {
+            text-align: center;
+            margin-bottom: 120px;
+        }
+
+        .hero-pre {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 7.5rem);
+            font-weight: 400;
+            font-variation-settings: 'wdth' 62.5; 
+            text-transform: uppercase;
+            line-height: 0.9;
+            letter-spacing: -0.02em;
+            margin-bottom: 32px;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            font-family: var(--font-sans);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        .asterisk {
+            font-size: 2rem;
+            line-height: 0.5;
+            vertical-align: middle;
+        }
+
+        
+        .section-title {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--color-ink);
+            padding-bottom: 16px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 2px solid var(--color-ink);
+            border-bottom: 2px solid var(--color-ink);
+        }
+
+        .service-card {
+            padding: 40px;
+            border-right: 2px solid var(--color-ink);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 320px;
+            transition: background-color 0.2s;
+        }
+
+        .service-card:last-child {
+            border-right: none;
+        }
+
+        .service-card:hover {
+            background-color: rgba(0,0,0,0.05);
+            cursor: pointer;
+        }
+
+        .service-num {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-variation-settings: 'wdth' 62.5;
+            opacity: 0.5;
+        }
+
+        .service-name {
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .service-desc {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            max-width: 90%;
+            opacity: 0.8;
+        }
+
+        
+        .cta-section {
+            margin-top: 120px;
+            padding-bottom: 120px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .cta-header {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            text-transform: uppercase;
+            line-height: 0.9;
+            font-variation-settings: 'wdth' 62.5;
+        }
+
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        label {
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        input, select {
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid var(--color-ink);
+            padding: 12px 0;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--color-ink);
+            outline: none;
+            border-radius: 0;
+            width: 100%;
+        }
+
+        input:focus {
+            border-bottom-width: 4px;
+        }
+
+        button.submit-btn {
+            margin-top: 24px;
+            background: var(--color-ink);
+            color: var(--color-bg);
+            border: none;
+            padding: 24px;
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        button.submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        
+        footer {
+            border-top: 1px solid var(--color-ink);
+            padding: 40px 0;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-top: 40px;
+        }
+
+        
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .service-card {
+                border-right: none;
+                border-bottom: 2px solid var(--color-ink);
+                height: auto;
+                padding: 32px 0;
+            }
+            .cta-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero-title {
+                font-size: 4rem;
+            }
+            header {
+                flex-direction: column;
+                align-items: center;
+                gap: 24px;
+            }
+            .logo {
+                font-size: 4rem; 
+            }
+        }
+    </style>
+</head>
+<body vid="9">
+
+    <div class="container" vid="10">
+        <header vid="11">
+            <div class="logo" vid="12">Onyx Plumbing</div>
+            <nav vid="13">
+                <a href="#" class="nav-link" vid="14">Services</a>
+                <a href="#" class="nav-link" vid="15">Emergency</a>
+                <a href="#" class="nav-link" vid="16">About</a>
+                <a href="#" class="nav-link" vid="17">Contact</a>
+            </nav>
+        </header>
+
+        <section class="hero" vid="18">
+            
+            <div class="hero-pre" vid="19">
+                <span class="label-underlined" vid="20">Residential</span>
+                <span class="label-underlined" vid="21">Commercial</span>
+                <span class="label-underlined" vid="22">Industrial</span>
+            </div>
+            
+            
+            <h1 class="hero-title" vid="23">
+                Precision<br vid="24">
+                Pipe Works
+            </h1>
+
+            
+            <div class="hero-meta" vid="25">
+                <span vid="26">Est. 1984</span>
+                <span class="asterisk" vid="27">*</span>
+                <span vid="28">24/7 Service</span>
+            </div>
+        </section>
+
+        <section class="services" vid="29">
+            <div class="section-title" vid="30">
+                <span vid="31">Our Expertise</span>
+                <span vid="32">Available Now</span>
+            </div>
+
+            
+            <div class="services-grid" vid="33">
+                <article class="service-card" vid="34">
+                    <span class="service-num" vid="35">01</span>
+                    <div vid="36">
+                        <h3 class="service-name" vid="37">Leak Detection</h3>
+                        <p class="service-desc" vid="38">Advanced acoustic and thermal imaging to locate hidden leaks without destruction.</p>
+                    </div>
+                </article>
+                <article class="service-card" vid="39">
+                    <span class="service-num" vid="40">02</span>
+                    <div vid="41">
+                        <h3 class="service-name" vid="42">Pipe Repair</h3>
+                        <p class="service-desc" vid="43">Complete copper and PEX repiping solutions for aging infrastructure.</p>
+                    </div>
+                </article>
+                <article class="service-card" vid="44">
+                    <span class="service-num" vid="45">03</span>
+                    <div vid="46">
+                        <h3 class="service-name" vid="47">Emergency</h3>
+                        <p class="service-desc" vid="48">Rapid response team for burst pipes, sewage backup, and critical failures.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="cta-section" vid="49">
+            <div class="cta-text" vid="50">
+                <h2 class="cta-header" vid="51">Don't Wait<br vid="52">For The<br vid="53">Flood</h2>
+                <div style="margin-top: 32px; font-size: 1.2rem; line-height: 1.5; max-width: 400px;" vid="54">
+                    EXPERT TECHNICIANS STANDING BY.<br vid="55">
+                    NO OVERTIME CHARGES ON WEEKENDS.
+                </div>
+            </div>
+
+            <form class="booking-form" vid="56">
+                <div class="input-group" vid="57">
+                    <label vid="58">Name</label>
+                    <input type="text" placeholder="ENTER YOUR NAME" vid="59">
+                </div>
+                <div class="input-group" vid="60">
+                    <label vid="61">Issue Type</label>
+                    <select vid="62">
+                        <option vid="63">SELECT ISSUE</option>
+                        <option vid="64">LEAK / BURST</option>
+                        <option vid="65">CLOG / DRAINAGE</option>
+                        <option vid="66">INSTALLATION</option>
+                    </select>
+                </div>
+                <div class="input-group" vid="67">
+                    <label vid="68">Phone</label>
+                    <input type="tel" placeholder="(555) 000-0000" vid="69">
+                </div>
+                <button type="submit" class="submit-btn" vid="70">Request Immediate Service</button>
+            </form>
+        </section>
+
+        <footer vid="71">
+            <div vid="72">Onyx Plumbing Co. © 2024</div>
+            <div vid="73">Licensed &amp; Insured</div>
+            <div vid="74">New York, NY</div>
+        </footer>
+    </div>
+
+
+</body></html>

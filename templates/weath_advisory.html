@@ -1,0 +1,636 @@
+<html vid="0"><head vid="1">
+    <meta charset="UTF-8" vid="2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" vid="3">
+    <title vid="4">Paradigm | Autonomous Tax Intelligence</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17" vid="5"></script>
+    <style vid="6">
+        
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap');
+        
+        :root {
+            
+            --paper: #F2F0EB;      
+            --ink: #1C1C1B;        
+            --forest: #2A382E;     
+            --clay: #C9A690;       
+            --stone: #D0DCD9;      
+            --highlight: #D4E157;  
+            
+            
+            --border: 1px solid rgba(28, 28, 27, 0.15);
+            --heavy-border: 1px solid rgba(28, 28, 27, 1);
+            --spacing-unit: 1.5rem;
+        }
+        
+        body {
+            background-color: var(--paper);
+            color: var(--ink);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.4;
+            width: 100%;
+            height: 100%;
+        }
+        
+        h1, h2, h3, .serif {
+            font-family: 'Fraunces', serif;
+            font-weight: 300;
+            letter-spacing: -0.03em;
+        }
+        
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: 280px 1fr 280px;
+            width: 100%;
+            border-bottom: var(--border);
+        }
+        
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            border-bottom: var(--heavy-border);
+            position: sticky;
+            top: 0;
+            background: var(--paper);
+            z-index: 100;
+        }
+        
+        .brand {
+            padding: var(--spacing-unit);
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            border-right: var(--heavy-border);
+            display: flex;
+            align-items: center;
+            width: 280px;
+        }
+        
+        .nav-links {
+            display: flex;
+            flex-grow: 1;
+        }
+        
+        .nav-item {
+            padding: 0 var(--spacing-unit);
+            display: flex;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            border-right: var(--border);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .nav-item:hover { 
+            background: rgba(0,0,0,0.03); 
+        }
+        
+        .cta-btn {
+            background: var(--ink);
+            color: var(--paper);
+            border: none;
+            padding: 0 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 280px;
+            border-left: var(--heavy-border);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-btn:hover {
+            background: var(--forest);
+            color: #fff;
+        }
+        
+        
+        .hero {
+            height: 600px;
+            display: grid;
+            grid-template-columns: 60% 40%;
+            border-bottom: var(--heavy-border);
+        }
+        
+        .hero-content {
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-right: var(--heavy-border);
+        }
+        
+        .hero-headline {
+            font-size: 5.5rem;
+            line-height: 0.9;
+            margin-bottom: 2rem;
+            color: var(--ink);
+        }
+        
+        .hero-headline span {
+            font-style: italic;
+            color: var(--forest);
+        }
+        
+        .hero-sub {
+            font-size: 1.2rem;
+            max-width: 400px;
+            color: #555;
+            margin-bottom: 3rem;
+        }
+        
+        .hero-visual {
+            background: var(--forest);
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        
+        .invoice-card {
+            background: var(--paper);
+            width: 100%;
+            max-width: 380px;
+            padding: 2rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            transform: rotate(-2deg);
+            border: 1px solid rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .invoice-header {
+            border-bottom: 2px dashed #ccc;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .invoice-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+        }
+        
+        .highlight-row {
+            background: var(--highlight);
+            padding: 2px 5px;
+            margin: 0 -5px 0.8rem -5px;
+        }
+        
+        
+        .ticker {
+            border-bottom: var(--heavy-border);
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 1rem 0;
+            background: var(--ink);
+            color: var(--paper);
+        }
+        
+        .ticker-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-bottom: var(--heavy-border);
+        }
+        
+        .value-item {
+            padding: 3rem 2rem;
+            border-right: var(--border);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 300px;
+            transition: background 0.3s ease;
+        }
+        
+        .value-item:last-child { 
+            border-right: none; 
+        }
+        
+        .value-item:hover { 
+            background: #fff; 
+        }
+        
+        .value-number {
+            font-family: 'Fraunces', serif;
+            font-size: 3rem;
+            color: var(--clay);
+            margin-bottom: 1rem;
+        }
+        
+        .value-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+        
+        .value-desc {
+            font-size: 0.95rem;
+            color: #666;
+        }
+        
+        
+        .demo-section {
+            padding: 6rem 4rem;
+            background-color: #E8E6E1;
+            border-bottom: var(--heavy-border);
+        }
+        
+        .demo-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .demo-text h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .demo-text p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 400px;
+        }
+        
+        .control-panel {
+            background: var(--ink);
+            color: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            position: relative;
+        }
+        
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stat-label {
+            width: 120px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: #888;
+        }
+        
+        .stat-bar-bg {
+            flex-grow: 1;
+            height: 4px;
+            background: rgba(255,255,255,0.1);
+            margin: 0 1rem;
+            position: relative;
+        }
+        
+        .stat-bar-fill {
+            height: 100%;
+            background: var(--clay);
+            width: 0%;
+            animation: fillBar 2s ease-out forwards;
+        }
+        
+        .stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--highlight);
+        }
+        
+        @keyframes fillBar { 
+            to { width: 75%; } 
+        }
+        
+        
+        .pricing-section {
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+        
+        .pricing-table {
+            max-width: 900px;
+            margin: 4rem auto 0;
+            border-top: 2px solid var(--ink);
+        }
+        
+        .price-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            border-bottom: 1px solid var(--ink);
+            padding: 1.5rem 0;
+            align-items: center;
+            text-align: left;
+        }
+        
+        .price-row:first-child {
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--ink);
+        }
+        
+        .check-mark {
+            color: var(--forest);
+            font-weight: bold;
+        }
+        
+        
+        footer {
+            background: var(--forest);
+            color: #E0E0E0;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .footer-col h4 {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--clay);
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            opacity: 0.8;
+        }
+        
+        .footer-col li:hover { 
+            opacity: 1; 
+            text-decoration: underline; 
+        }
+        
+        
+        .btn-secondary {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border: 1px solid var(--ink);
+            text-decoration: none;
+            color: var(--ink);
+            font-family: 'JetBrains Mono', monospace;
+            transition: all 0.2s;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--ink);
+            color: var(--paper);
+        }
+    </style>
+</head>
+<body class="w-full h-full" vid="7">
+    
+    <nav vid="8">
+        <div class="brand" vid="9">PARADIGM.</div>
+        <div class="nav-links" vid="10">
+            <div class="nav-item" vid="11">Intelligence</div>
+            <div class="nav-item" vid="12">Audit Defense</div>
+            <div class="nav-item" vid="13">Pricing</div>
+            <div class="nav-item" vid="14">Journal</div>
+        </div>
+        <button class="cta-btn" vid="15">START ASSESSMENT</button>
+    </nav>
+    
+    <section class="hero" vid="16">
+        <div class="hero-content" vid="17">
+            <div vid="18">
+                <div class="mono" style="margin-bottom: 1rem; color: var(--clay);" vid="19">◆ 2024 Tax Strategy Engine</div>
+                <h1 class="hero-headline" vid="20">Wealth is<br vid="21"><span vid="22">mathematical</span>.</h1>
+                <p class="hero-sub" vid="23">Paradigm replaces the CPA with autonomous, forensic tax intelligence. We find the deductions human error leaves behind.</p>
+                <a href="#" class="btn-secondary" vid="24">Analyze Portfolio -&gt;</a>
+            </div>
+        </div>
+        <div class="hero-visual" vid="25">
+            
+            <div class="invoice-card" vid="26">
+                <div class="invoice-header" vid="27">
+                    <div class="mono" vid="28">IRS FORM 1040-X</div>
+                    <div class="mono" vid="29">AI-VERIFIED</div>
+                </div>
+                <div class="invoice-row" vid="30">
+                    <span vid="31">Gross Income</span>
+                    <span vid="32">$245,000.00</span>
+                </div>
+                <div class="invoice-row" vid="33">
+                    <span vid="34">Deductions Found</span>
+                    <span style="color: var(--forest);" vid="35">+$32,450.00</span>
+                </div>
+                <div class="invoice-row highlight-row" vid="36">
+                    <span vid="37">Pattern: Real Estate</span>
+                    <span vid="38">MATCHED</span>
+                </div>
+                <div class="invoice-row" vid="39">
+                    <span vid="40">Audit Risk</span>
+                    <span vid="41">0.012%</span>
+                </div>
+                <div style="margin-top: 2rem; border-top: 1px solid #eee; padding-top: 1rem; text-align: center;" class="mono" vid="42">
+                    OPTIMIZATION COMPLETE
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="ticker" vid="43">
+        <div class="ticker-content" vid="44">
+            SECURE DATA ENCLAVE 
+        </div>
+    </div>
+    
+    <section class="value-grid" vid="45">
+        <div class="value-item" vid="46">
+            <div class="mono" vid="47">01</div>
+            <div vid="48">
+                <div class="value-number" vid="49">27%</div>
+                <div class="value-title" vid="50">Average Saving</div>
+                <div class="value-desc" vid="51">Compared to standard CPA filing methods for incomes over $150k.</div>
+            </div>
+        </div>
+        <div class="value-item" vid="52">
+            <div class="mono" vid="53">02</div>
+            <div vid="54">
+                <div class="value-number" vid="55">0.0s</div>
+                <div class="value-title" vid="56">Manual Entry</div>
+                <div class="value-desc" vid="57">Drag and drop your financial nexus. Paradigm parses the rest.</div>
+            </div>
+        </div>
+        <div class="value-item" vid="58">
+            <div class="mono" vid="59">03</div>
+            <div vid="60">
+                <div class="value-number" vid="61">72k</div>
+                <div class="value-title" vid="62">Tax Codes</div>
+                <div class="value-desc" vid="63">Instantly cross-referenced against your spending habits.</div>
+            </div>
+        </div>
+        <div class="value-item" vid="64">
+            <div class="mono" vid="65">04</div>
+            <div vid="66">
+                <div class="value-number" vid="67">∞</div>
+                <div class="value-title" vid="68">Audit Defense</div>
+                <div class="value-desc" vid="69">Full legal representation included in every subscription tier.</div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="demo-section" vid="70">
+        <div class="demo-wrapper" vid="71">
+            <div class="demo-text" vid="72">
+                <div class="mono" style="color: var(--forest); margin-bottom: 1rem;" vid="73">— Forensic Analysis</div>
+                <h2 class="serif" vid="74">We see what they miss.</h2>
+                <p vid="75">Traditional tax prep looks at receipts. Paradigm analyzes intent, cash flow, and legislative loopholes to construct a fortress around your wealth.</p>
+                <ul style="list-style: none; margin-bottom: 2rem;" vid="76">
+                    <li style="margin-bottom: 1rem; display: flex; align-items: center;" vid="77">
+                        <span style="width: 10px; height: 10px; background: var(--clay); display: block; margin-right: 1rem; border-radius: 50%;" vid="78"></span>
+                        Predictive liability modeling
+                    </li>
+                    <li style="margin-bottom: 1rem; display: flex; align-items: center;" vid="79">
+                        <span style="width: 10px; height: 10px; background: var(--forest); display: block; margin-right: 1rem; border-radius: 50%;" vid="80"></span>
+                        Retroactive deduction scanning
+                    </li>
+                </ul>
+            </div>
+            
+            
+            <div class="control-panel" vid="81">
+                <div class="panel-header" vid="82">
+                    <span class="mono" vid="83">LIVE ANALYSIS</span>
+                    <span class="mono" vid="84">Q4 2023</span>
+                </div>
+                
+                <div class="stat-row" vid="85">
+                    <span class="stat-label" vid="86">Standard Filing</span>
+                    <div class="stat-bar-bg" vid="87">
+                        <div class="stat-bar-fill" style="width: 45%; background: #555; animation: none;" vid="88"></div>
+                    </div>
+                    <span class="stat-value" style="color: #999;" vid="89">$12,400</span>
+                </div>
+                <div class="stat-row" vid="90">
+                    <span class="stat-label" vid="91">Paradigm AI</span>
+                    <div class="stat-bar-bg" vid="92">
+                        <div class="stat-bar-fill" vid="93"></div>
+                    </div>
+                    <span class="stat-value" vid="94">$4,250</span>
+                </div>
+                <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center;" vid="95">
+                    <span class="mono" style="font-size: 0.7rem; color: #888;" vid="96">TOTAL LIABILITY REDUCTION</span>
+                    <span style="font-size: 1.5rem; color: var(--highlight);" vid="97">65.7%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="pricing-section" vid="98">
+        <h2 class="serif" style="font-size: 3rem; margin-bottom: 1rem;" vid="99">Fair and honest pricing.</h2>
+        <p style="color: #666;" vid="100">Flat fees. No percentage of refund taken.</p>
+        <div class="pricing-table" vid="101">
+            <div class="price-row" vid="102">
+                <span vid="103">Features</span>
+                <span vid="104">CPA Firm</span>
+                <span style="color: var(--forest); font-weight: bold;" vid="105">PARADIGM</span>
+            </div>
+            <div class="price-row" vid="106">
+                <span vid="107">Federal &amp; State Filing</span>
+                <span class="check-mark" vid="108">✓</span>
+                <span class="check-mark" vid="109">✓</span>
+            </div>
+            <div class="price-row" vid="110">
+                <span vid="111">Audit Defense</span>
+                <span vid="112">$250/hr</span>
+                <span class="check-mark" vid="113">INCLUDED</span>
+            </div>
+            <div class="price-row" vid="114">
+                <span vid="115">AI Deduction Scanning</span>
+                <span vid="116">—</span>
+                <span class="check-mark" vid="117">✓</span>
+            </div>
+            <div class="price-row" vid="118">
+                <span vid="119">Quarterly Strategy</span>
+                <span vid="120">—</span>
+                <span class="check-mark" vid="121">✓</span>
+            </div>
+            <div class="price-row" style="font-family: 'Fraunces', serif; font-size: 1.2rem;" vid="122">
+                <span vid="123">Annual Cost</span>
+                <span vid="124">~$2,500</span>
+                <span style="color: var(--forest);" vid="125">$450</span>
+            </div>
+        </div>
+    </section>
+    <footer vid="126">
+        <div class="footer-col" vid="127">
+            <div style="font-family: 'Fraunces', serif; font-size: 1.5rem; margin-bottom: 1rem;" vid="128">Paradigm.</div>
+            <div class="mono" style="font-size: 0.7rem; opacity: 0.6;" vid="129">© 2024 PARADIGM FINANCIAL INC.</div>
+        </div>
+        <div class="footer-col" vid="130">
+            <h4 vid="131">PRODUCT</h4>
+            <ul vid="132">
+                <li vid="133">How it Works</li>
+                <li vid="134">Security</li>
+                <li vid="135">Pricing</li>
+                <li vid="136">API Access</li>
+            </ul>
+        </div>
+        <div class="footer-col" vid="137">
+            <h4 vid="138">RESOURCES</h4>
+            <ul vid="139">
+                <li vid="140">Tax Library</li>
+                <li vid="141">Deduction List</li>
+                <li vid="142">Crypto Guide</li>
+                <li vid="143">Freelance Guide</li>
+            </ul>
+        </div>
+        <div class="footer-col" vid="144">
+            <h4 vid="145">COMPANY</h4>
+            <ul vid="146">
+                <li vid="147">Manifesto</li>
+                <li vid="148">Careers</li>
+                <li vid="149">Legal</li>
+                <li vid="150">Contact</li>
+            </ul>
+        </div>
+    </footer>
+
+</body></html>
